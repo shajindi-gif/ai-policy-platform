@@ -1,0 +1,48 @@
+import time
+import os
+from dotenv import load_dotenv
+from openai import OpenAI
+from celery_app import celery_app
+
+load_dotenv()
+
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+@celery_app.task
+def add(x, y):
+    return x + y
+
+@celery_app.task
+def long_task(seconds):
+    time.sleep(seconds)
+    return {"status": "done", "slept": seconds}
+
+        return {
+            "status": "success",
+            "command": command,
+            "output": resp.output_text
+        }
+    except Exception as e:
+        return {
+            "status": "error",
+            "command": command,
+@celery_app.task
+def company_command(command: str):
+    try:
+        resp = client.responses.create(
+            model="gpt-4.1-mini",
+            input=f"你是无人公司的执行助理。用户命令是：{command}。请直接输出执行结果。"
+        )
+        return {
+            "status": "success",
+            "command": command,
+            "output": resp.output_text
+        }
+
+    except Exception as e:
+        return {
+            "status": "fallback",
+            "command": command,
+            "output": f"已收到任务，但外部AI调用失败：{str(e)}"
+        }            "error": str(e)
+        }

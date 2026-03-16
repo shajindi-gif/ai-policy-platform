@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python build
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+
+# Environment variables
+.env
+
+# MacOS
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints
+
+# Node
+node_modules/
+
+# Next.js
+.next/
+
+# Docker
+docker-data/
+
+# Large data
+data/
+datasets/
+models/
+
+# IDE
+.vscode/
+.idea/

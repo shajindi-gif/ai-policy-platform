@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS tasks (
+    id SERIAL PRIMARY KEY,
+    task_id UUID UNIQUE NOT NULL,
+    command TEXT NOT NULL,
+    status VARCHAR(20) DEFAULT 'PENDING',
+    result JSONB,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
