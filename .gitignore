@@ -1,40 +1,21 @@
-cat > .gitignore <<'EOF'
-# macOS
 .DS_Store
-
-# Python
 __pycache__/
 *.py[cod]
 *.so
 *.egg-info/
 .pytest_cache/
 .mypy_cache/
-
-# Virtual env
 .venv/
 venv/
 env/
-
-# IDE
 .vscode/
 .idea/
-
-# Env files
 .env
 .env.*
-
-# Logs
 *.log
-
-# Local data
 data/
 uploads/
 tmp/
-
-# Database / vector store
 *.db
 qdrant_storage/
-
-# Node
 node_modules/
-EOF
